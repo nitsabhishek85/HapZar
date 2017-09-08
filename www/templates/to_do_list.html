@@ -1,0 +1,240 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" ng-hide="$exposeAside.active" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="../img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-search"></i>
+            </button>
+        </div>
+    </div>-->
+	
+	<div class="bar bar-subheader" style="height: 57px">
+    
+    	<div class="row">
+    		<div class="col no-padding">
+		    	<div class="item home-list" style="padding-top: 7px; padding-bottom: 7px; overflow: visible;">
+					<p style="width: 80%; float:left"><b>Sort</b> : Priority, To Do's, Members, Status</p>
+					<div class="button-area">
+						<a class="more-icon" href="" ng-click="ShowHide()"><i class="icon ion-android-more-vertical"></i></a>
+						<div class="show-hide-wrap" ng-show = "IsVisible">
+							<!--<label class="checkbox" for="#11"><input type="radio" id="11" name="name"> My ToDo</label>
+							<label class="checkbox" for="#22"><input type="radio" checked="" id="22" name="name"> Assign ToDo</label>
+							<label class="checkbox" for="#33"><input type="radio"  id="33" name="name"> All ToDo</label>-->
+							<label class="checkbox" for="#11" ng-if="todofilter.type == 1" ng-click="populateToDo(1)"><input type="radio" id="11" name="name" checked> My ToDo</label>
+							<label class="checkbox" for="#11" ng-if="todofilter.type != 1" ng-click="populateToDo(1)"><input type="radio" id="11" name="name"> My ToDo</label>
+							<label class="checkbox" for="#22" ng-if="todofilter.type == 2" ng-click="populateToDo(2)"><input type="radio" id="22" name="name" checked> Assign ToDO</label>
+							<label class="checkbox" for="#22" ng-if="todofilter.type != 2" ng-click="populateToDo(2)"><input type="radio" id="22" name="name"> Assign ToDO</label>
+							<label class="checkbox" for="#33" ng-if="todofilter.type == 3" ng-click="populateToDo(3)"><input type="radio"  id="33" name="name" checked> All ToDo</label>
+							<label class="checkbox" for="#33" ng-if="todofilter.type != 3" ng-click="populateToDo(3)"><input type="radio"  id="33" name="name"> All ToDO</label>
+							<label class="checkbox" for="#44" ng-if="todofilter.type == 4" ng-click="populateToDo(4)"><input type="radio"  id="44" name="name" checked> Completed ToDo</label>
+							<label class="checkbox" for="#44" ng-if="todofilter.type != 4" ng-click="populateToDo(4)"><input type="radio"  id="44" name="name"> Completed ToDO</label>
+							<label class="checkbox" for="#55" ng-if="todofilter.type == 5" ng-click="populateToDo(5)"><input type="radio"  id="55" name="name" checked> Uncompleted ToDo</label>
+							<label class="checkbox" for="#55" ng-if="todofilter.type != 5" ng-click="populateToDo(5)"><input type="radio"  id="55" name="name"> Uncompleted ToDO</label>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+			    </div>
+    		</div>
+    	</div>
+    </div>
+	
+  	<ion-content class="has-subheader has-footer" style="background: #379fba;margin-top: 14px; padding-top: 10px;" >
+	
+	<!--<div class="row">
+		<div class="col">
+			<p style="color: #fff;">PROJECTS</p>
+		</div>
+		<div class="col">
+			<p style="text-align: right; color: #fff;">TO-DO'S</p>
+		</div>
+	</div>-->
+	
+	<div class="row">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+			    <!--<div class="item home-list">
+			      <div class="home-item detail_home_part" style="width: 85%; float: left">
+			      	<h2 style="margin-bottom: 5px">{{projectInfo.name}}</h2>
+			      	<p><i style="font-size: 24px; vertical-align: sub; margin-right: 2px" class="icon ion-ios-chatbubble-outline"></i>&nbsp;Message Project Members</p>
+			      	
+			      </div>
+			      <div class="home-imgdetail_img_edit" style="width: 14%; float:right; text-align: center;" ng-click="addTask();">
+			      	<i style="font-size: 30px;color: #379fba;" class="icon ion-android-add-circle"></i>
+			      </div>-->
+			      
+			      <!--<p style="width: 100%; float:left"><b>Sort</b> : Priority, To Do's, Members, Status</p>-->
+			      <!--<p><select ng-model="todofilter.type" ng-change="populateToDo(todofilter.type)">
+				      <option value='1' ng-selected="todofilter.type == 1">My ToDo</option>
+				      <option value='2' ng-selected="todofilter.type == 2">Assign ToDo</option>
+				      <option value='3' ng-selected="todofilter.type == 3">All ToDo</option>
+			      
+			      
+			    </select></p>-->
+			      <!--<p style="width: 100%; float:left" ng-if="projectInfo.user_id == loggedindetails.id && project_close == 1 && projectInfo.is_complete == 0"><button class="button button-block button-assertive" ng-click="projectClose(projectInfo.id)">Close</button></p>
+			    </div>-->
+
+				<div class="item home-list" ng-if="todolist.length > 0">
+				
+			     <div class="first_col">
+			     	<b>Status</b>
+			     </div>
+			     
+			     <div class="second_col">
+			     	<b>ToDo, Member, Edit</b>
+			     </div>
+			     
+			     <div class="Third_col">
+			     	<b>Priority</b>
+			     </div>
+			     
+			     
+			     
+			     
+			     
+			     
+			     <div ng-repeat="tododata in todolist" class="each_job_details" style="">
+				     <div class="first_col">
+				     	<!--<i style="font-size: 18px;" class="icon ion-android-checkbox-outline-blank"></i>-->
+				     	<label class="checkbox">
+             				<input type="checkbox" ng-model="tododata.is_checked" ng-click="todoCheckClick(tododata,tododata.id)">
+           				</label>
+				     </div>
+				     
+				     <div class="second_col">
+				     	<p ng-click="todo_details(tododata.id)">{{tododata.name}}</p>
+				     	<p><span style="display: inline-block; margin-right:5px; font-size: 22px"><i style="vertical-align: sub;" class="icon ion-ios-chatbubble-outline"></i></span>{{tododata.first_name}} {{tododata.last_name}}</p>
+				     </div>
+				     
+				     <div class="Third_col">
+				     	<b>{{tododata.priority}}</b>
+				     </div>			     
+			     </div>
+			     
+			      
+			     
+			     
+			     
+			     
+			     
+			     
+			     
+			     
+			    </div>
+			    
+			    
+			    
+
+        </div>
+	</div>
+	
+	
+
+	<style>
+		.first_col {
+    width: 18%;
+    float: left;
+    text-align: center;
+    font-size: 13px;
+}
+
+.second_col {
+    width: 62%;
+    float: left;
+    text-align: center;
+     font-size: 13px;
+   
+}
+.Third_col {
+    width: 20%;
+    float: right;
+    text-align: center;
+     font-size: 13px;
+   
+}
+
+
+.second_col p {    white-space: normal;
+    text-align: center;
+       line-height: 15px;}
+       
+       .each_job_details {width: 100%; margin:8px auto; float: left; padding-bottom: 5px;    border-bottom: 1px solid #ccc;}
+       
+        .each_job_details:last-child {border-bottom: none;}
+
+	</style>
+
+  </ion-content>
+  <!--<div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item active"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item"><i class="icon ion-android-folder"></i> Projects</a>
+		<a class="tab-item" ><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu class="sidebar_bg">
+       
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="../img/profile.jpg">
+	   	 	<h2 style="color: #fff;">Boka’s Notes</h2>
+	   	 	<p style="color: #fff;">Lorem Ipsum</p>
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		  
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+</ion-view>-->
+
+
+
+<style>
+	.button-area{position: relative;}
+	.button-area a.more-icon{display: inline-block; float: right; font-size:25px; padding: 0 5px; margin-top: -3px; color:#246879}
+	.button-area a.more-icon i{line-height: 16px; display: block;}
+	.show-hide-wrap{position: absolute; top:22px; right:0; z-index:99; min-width:100px; background: #fff; box-shadow:0px 0px 3px 0px rgba(0,0,0,0.3); border-radius: 3px; padding: 5px}
+	label.checkbox{display: block; position: relative; padding-left: 35px; margin-bottom: 5px;}
+	label.checkbox input[type="radio"]{position: absolute; left: 0; top:3px}
+	.no-padding{padding: 0!important}
+</style>

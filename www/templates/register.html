@@ -1,0 +1,57 @@
+<ion-view view-title="Register">
+  <ion-content class="login-wrapper padding slide_height" >
+  	<!--<div class="bar bar-header" style="position: static;">
+        <div class="buttons buttons-left header-item">
+            <span class="left-buttons">
+                <a href="#/sign_up"><button class="button button-icon button-clear ion-ios-arrow-left"></button></a>
+            </span>
+        </div>
+        <div class="h1 title">Create account</div>
+    </div>-->
+	<div class="animated slideInRight">
+		<div class="login_holder">
+			<img ng-src="img/login-logo.png" alt="" class="login_logo"/>
+			 
+			
+			
+			<div class="list padding-right padding-left">
+				<form name="signup_form" ng-submit="userSignup(user)">
+	                <label class="item item-input-inset">
+						<i class="icon ion-android-person placeholder-icon"></i>
+						<input style="color:#fff;" type="text" placeholder="Full Name" ng-model="user.name">
+					</label>
+					<label class="item item-input-inset">
+						<i class="icon ion-android-mail placeholder-icon"></i>
+						<input style="color:#fff;" type="email" placeholder="Email" ng-model="user.email">
+					</label>
+					<label class="item item-input-inset">
+						<i class="icon ion-key placeholder-icon"></i>
+						<input style="color:#fff;" type="password" placeholder="Password" ng-model="user.password">
+					</label>
+	                <label class="item item-input-inset">
+						<i class="icon ion-iphone placeholder-icon"></i>
+						<input style="color:#fff;" type="text" placeholder="Phone" ng-model="user.mobile_number">
+					</label>
+
+					<label class="item item-input-inset">
+						<i class="icon ion-map placeholder-icon"></i>
+						<input style="color:#fff;" type="text" placeholder="Location" ng-model="user.location">
+					</label>
+	                <button class="button button-block button-royal" type="submit" style="background: #44d9e6; border: none; font-family: 'Exo 2', sans-serif; box-shadow: none; margin-top: 30px;">Sign Up</button>
+	                </form>
+	                
+	               <!-- <div class="row responsive-sm">
+  				<div class="col" style="height: 5px; margin-bottom: 40px;">
+  					<div class="or" >
+  						<img src="../img/line.png" />
+  					</div>
+  				</div>
+			</div>-->
+			<p style="color: #fff; text-align: center;" ng-click="userLogin()">Already have an account! <a style="color: #fff;" href="">Login</a></p>
+			<!--<button class="button button-block button-royal" style="background: #fff; border: none; font-family: 'Exo 2', sans-serif; box-shadow: none; margin-top: 30px;color: #44d9e6;">LOGIN</button>-->
+					
+	            </div>
+         </div>
+	</div>
+  </ion-content>
+</ion-view>

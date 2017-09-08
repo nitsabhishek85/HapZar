@@ -1,0 +1,177 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" ng-hide="$exposeAside.active" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-search"></i>
+            </button>
+        </div>
+    </div>-->
+    
+    <div class="bar bar-subheader">
+	  <div class="row">
+	  	<div class="col col-20">
+	  		<img src="img/map-btn.png" style="margin: 0 auto; width: 100%; margin-top: -3px;" />
+	  	</div>
+	  	<div class="col col-60">
+	  		<label class="item item-input customize_input">
+		    
+		    <input type="text" style="color:#fff;" ng-model="project_filter.name">
+		    <i class="icon ion-android-microphone placeholder-icon"></i>
+		  </label>
+	  	</div>
+	  	<div class="col col-20">
+	  		<img src="img/sort.png" style="width: 100%;margin:0 auto; margin-top: -3px;" ng-click="setOrderProperty('comment')"/>
+	  	</div>
+	  	
+	  </div>
+    </div>
+    
+  <ion-content class="has-subheader has-footer" style="background: #379fba;padding-top: 10px;" >
+	
+	
+	
+	<div class="row">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+				<div class="item home-list" ng-repeat="alertData in alertInfo | orderBy: orderProperty" ng-if="alertData.is_read == 0">
+			      
+			      <div class="alert-img">
+			      	<img src="{{alertData.profile_image_url}}" style="margin: 0 auto; width:100%;" />
+			      </div>
+			      <div class="alert-item" ng-if="(alertData.notification_type == 0 || alertData.is_todo_complete != 0) && alertData.is_accepted == 0" ng-click="alertDetail(alertData.id,alertData.prj_id,alertData.from_user_id)">
+			      	<h2 ng-if="alertData.notification_type == 0">{{alertData.project_name}}</h2>
+			      	<h2 ng-if="alertData.notification_type == 1">{{alertData.comment}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-item" ng-if="(alertData.notification_type == 0 || alertData.is_todo_complete != 0) && alertData.is_accepted != 0" ng-click="alertTaskDetail(alertData.id,alertData.prj_id,alertData.from_user_id)">
+			      	<h2 ng-if="alertData.notification_type == 0">{{alertData.project_name}}</h2>
+			      	<h2 ng-if="alertData.notification_type == 1">{{alertData.comment}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-item" ng-if="alertData.notification_type == 1 && alertData.is_todo_complete == 0" ng-click="alertTaskDetail(alertData.id,alertData.prj_id,alertData.from_user_id)">
+			      	<h2>{{alertData.comment}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-status">
+			      	<p class="new">New</p>
+			      	<p class="new" ng-click="gotoProjectChat(alertData.prj_id)" style="background: #379fba;">Chat</p>
+			      </div>
+			      <!--<div class="alert-status" ng-click="gotoProjectChat(alertData.prj_id)">
+			      	<p class="new" style="background: #379fba;">Chat</p>
+			      </div>-->
+			    </div>
+
+			    <div class="item home-list" ng-repeat="alertData in alertInfo | orderBy: orderProperty | filter:project_filter" ng-if="alertData.is_read != 0">
+			      
+			      <div class="alert-img">
+			      	<img src="{{alertData.profile_image_url}}" style="margin: 0 auto; width:100%;" />
+			      </div>
+			      <div class="alert-item" ng-if="alertData.notification_type == 0 && alertData.is_accepted == 0" ng-click="alertDetail(alertData.id,alertData.prj_id,alertData.from_user_id)">
+			      	<h2>{{alertData.project_name}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-item" ng-if="alertData.notification_type == 0 && alertData.is_accepted != 0" ng-click="prodetail(alertData.prj_id,alertData.from_user_id)">
+			      	<h2>{{alertData.project_name}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-item" ng-if="alertData.notification_type == 1 && alertData.is_todo_complete == 0" ng-click="prodetail(alertData.prj_id,alertData.from_user_id)">
+			      	<h2>{{alertData.comment}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-item" ng-if="alertData.notification_type == 1 && alertData.is_accepted == 0 && alertData.is_todo_complete != 0" ng-click="alertDetail(alertData.id,alertData.prj_id,alertData.from_user_id)">
+			      	<h2>{{alertData.comment}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-item" ng-if="alertData.notification_type == 1 && alertData.is_accepted != 0 && alertData.is_todo_complete != 0" ng-click="prodetail(alertData.prj_id,alertData.from_user_id)">
+			      	<h2>{{alertData.comment}}</h2>
+			      	<p>Created By: {{alertData.first_name}} {{alertData.last_name}}</p>
+			      </div>
+			      <div class="alert-status" ng-click="gotoProjectChat(alertData.prj_id)">
+			      	<p class="new" style="background: #379fba;">Chat</p>
+			      </div>			      
+			    </div>
+
+			    
+        </div>
+	</div>
+	
+	<style>
+		.alert-img {width:20%; float:left;}
+		.alert-item {width:62%; float:left;padding-left: 10px;}
+		.alert-status {width: 16%;float: right;}
+		.alert-status p.new {width: 100%;text-align: center;top: 10%; margin-top: 40%; padding: 2px 5px;font-size: 12px;background: #ffde00;font-weight: 600; color:#000; border-radius: 8px;}
+	</style>
+
+	
+
+  </ion-content>
+  <!--<div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item active"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item"><i class="icon ion-android-folder"></i> Projects</a>
+		<a class="tab-item" ><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu class="sidebar_bg">
+       
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="img/profile.jpg">
+	   	 	<h2 style="color: #fff;">Boka’s Notes</h2>
+	   	 	<p style="color: #fff;">Lorem Ipsum</p>
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		  
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+</ion-view>-->
+
+
+
+
+<style>
+	
+</style>

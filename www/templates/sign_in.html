@@ -1,0 +1,68 @@
+
+  <ion-content class="login-wrapper padding slide_height">
+  
+	<div class="animated slideInRight">
+		<div class="login_holder">
+			<img ng-src="img/login-logo.png" style="margin-bottom:40px; width: 50%;" alt="" class="login_logo"/>
+			
+			<p style="color:#fff; font-size:16px;font-weight:500; text-align: left; margin: 20px 0 10px 20px;">Member login </p>
+			
+			
+			<div class="list padding-right padding-left" style="margin-bottom: 40px;">
+			
+			
+			
+			<!-- <p style="color:#2b2b2b; font-size:22px;font-weight:600; text-align: center; margin-bottom: 20px;">LOG IN </p>-->
+			<form name="signup_form" ng-submit="check_login(user)">
+	        	<label class="item item-input-inset"  style="margin-bottom: 0;">
+					<i class="icon ion-android-person placeholder-icon"></i>
+					<input style="color:#fff;" type="email" placeholder="Email" ng-model="user.email">
+				</label>
+				<label class="item item-input-inset" style="margin-bottom: 0;">
+					<i class="icon ion-ios-unlocked-outline placeholder-icon"></i>
+					<input style="color:#fff;" type="password" placeholder="Password" ng-model="user.password">
+				</label>
+				<p><a style="color: #fff; text-decoration: none;" ui-sref="forget_password">Forgot your password?</a></p>
+				
+				<button class="button button-block button-royal" type="submit" style="background: #44d9e6; border: none; font-family: 'Exo 2', sans-serif; box-shadow: none; margin-top: 30px;">Login</button>
+			</form>
+			
+			<div class="row responsive-sm">
+  				<div class="col">
+  					<div class="or">
+  						<img src="img/or.png" />
+  					</div>
+  				</div>
+			</div>
+			
+			<div class="row">
+				 <div class="col">
+				 	<div class="login-fb" > <img ng-click="facebookSignIn()" src="img/login-fb.png" /> </div>
+				 </div>
+				 <div class="col">
+				 	<div class="login-tweet"> <img src="img/login-tweet.png" /> </div>
+				 </div>
+				 <div class="col">
+				 	<div class="login-fb"> <img src="img/gplus.png" /> </div>
+				 </div>
+				 <div class="col">
+				 	<div class="login-tweet"> <img src="img/link.png" /> </div>
+				 </div>
+  			</div>
+  			
+			 <div class="row responsive-sm">
+  				<div class="col" style="height: 5px; margin-bottom: 40px;">
+  					<div class="or" style="border-bottom:1px solid #379fba; ">
+  						<img src="img/line.png" />
+  					</div>
+  				</div>
+			</div>
+			
+			<button class="button button-block button-royal" style="background: #fff; border: none; font-family: 'Exo 2', sans-serif; box-shadow: none; margin-top: 30px;color: #44d9e6;" ng-click="userSignup()">SIGNUP</button>
+	         
+	           
+	     	</div>
+         </div>
+	</div>
+	
+  </ion-content>

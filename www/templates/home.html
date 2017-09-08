@@ -1,0 +1,183 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" ng-hide="$exposeAside.active" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="../img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-search"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="bar bar-subheader">
+	  <div class="row">
+	  	<div class="col col-20">
+	  		<img src="../img/map-btn.png" style="margin: 0 auto; width: 100%; margin-top: -3px;" />
+	  	</div>
+	  	<div class="col col-60">
+	  		<label class="item item-input customize_input">
+		    
+		    <input type="text" style="color:#fff;">
+		    <i class="icon ion-android-microphone placeholder-icon"></i>
+		  </label>
+	  	</div>
+	  	<div class="col col-20">
+	  		<img src="../img/sort.png" style="width: 100%;margin:0 auto; margin-top: -3px;" />
+	  	</div>
+	  	
+	  </div>
+    </div>-->
+    <div ng-controller="ProjectListingCtrl">
+    <div class="bar bar-subheader">
+	  <div class="row">
+	  	<div class="col col-20">
+	  		<img src="img/map-btn.png" style="margin: 0 auto; width: 100%; margin-top: -3px;" />
+	  	</div>
+	  	<div class="col col-60">
+	  		<label class="item item-input customize_input">
+		    
+		    <input type="text" style="color:#fff;" ng-model="project_filter.name">
+		    <!--<select style="width: 50%;background:transparent;border: none;" ng-model="projectfilter.type" ng-change="populateProject(projectfilter.type)">
+		      <option value='1' ng-selected="projectfilter.type == 1">My Project</option>
+		      <option value='2' ng-selected="projectfilter.type == 2">Assign Project</option>
+		      <option value='3' ng-selected="projectfilter.type == 3">All Project</option>
+		      
+		      
+		    </select>-->
+		    <i class="icon ion-android-microphone placeholder-icon"></i>
+		  </label>
+	  	</div>
+	  	<div class="col col-20">
+	  		<img src="img/sort.png" style="width: 100%;margin:0 auto; margin-top: -3px;" ng-click="setOrderProperty('name')"/>
+	  	</div>
+	  	
+	  </div>
+    </div>
+    
+  <ion-content class="has-subheader has-footer" style="background: #379fba;" >
+	<div class="row">
+		<div class="col col-25">
+			<p style="color: #fff;">PROJECTS</p>
+		</div>
+		<div class="col col-50">
+			<div class="button-area">
+				<a class="more-icon" href="" ng-click="ShowHide()"><i class="icon ion-android-more-vertical"></i></a>
+				<div class="show-hide-wrap" ng-show = "IsVisible">
+					<label class="checkbox" for="#11" ng-if="projectfilter.type == 1" ng-click="populateProject(1)"><input type="radio" id="11" name="name" checked> My Project</label>
+					<label class="checkbox" for="#11" ng-if="projectfilter.type != 1" ng-click="populateProject(1)"><input type="radio" id="11" name="name"> My Project</label>
+					<label class="checkbox" for="#22" ng-if="projectfilter.type == 2" ng-click="populateProject(2)"><input type="radio" id="22" name="name" checked> Assign Project</label>
+					<label class="checkbox" for="#22" ng-if="projectfilter.type != 2" ng-click="populateProject(2)"><input type="radio" id="22" name="name"> Assign Project</label>
+					<label class="checkbox" for="#33" ng-if="projectfilter.type == 3" ng-click="populateProject(3)"><input type="radio"  id="33" name="name" checked> All Project</label>
+					<label class="checkbox" for="#33" ng-if="projectfilter.type != 3" ng-click="populateProject(3)"><input type="radio"  id="33" name="name"> All Project</label>
+						
+					<!--<ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
+					<ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>
+					<ion-radio ng-model="choice" ng-value="'C'">Choose C</ion-radio>-->
+					
+				</div>
+			</div>
+		</div>
+		<div class="col col-25">
+			<p style="text-align: right; color: #fff;">TO-DO'S</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div  class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+				<!-- ng-click="gotodetail(prjdata.id)" -->
+			    <div ng-repeat="prjdata in projectInfo | orderBy: orderProperty | filter:project_filter" class="item home-list" ng-click="indclk(prjdata)">
+			      <div class="home-item row">
+                                  
+                                    <div class="col col-20" ng-if="prjdata.is_video_link && prjdata.is_video_link =='1'"> <i class="icon ion-android-camera camera-icon"></i> </div>	
+                                    <div class="col col-60" >
+                                        <span>
+                                            <h2 style="line-height: 26px;">{{prjdata.name}}</h2>
+                                            <p>{{ prjdata.description | limitTo: 25 }}{{prjdata.description.length > 25 ? '...' : ''}}</p>                                                                                                                                                                </span>
+                                    </div>	
+                                  
+			      </div>			      
+			      <div class="home-img" ng-click="gotodetail(prjdata.id,prjdata.is_video_link)" style="margin-top: 3px;">
+			      	<div class="rounded-bg" ng-class="(($index % 3)== 0)?'yellow-bg':(($index % 3)== 1)?'skyblue-bg':'dark-yellow-bg'">
+			      		<i class="icon ion-chatbox"></i>
+			      		<div class="numberss" style="">{{prjdata.to_do_count}}</div>
+			      	</div>		      	
+			      	
+			      </div>
+			    </div>
+
+        </div>
+	</div>
+  </ion-content>
+  </div>
+  <!--<div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item active"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item"><i class="icon ion-android-folder"></i> Projects</a>
+		<a class="tab-item" ><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu expose-aside-when="large" class="sidebar_bg">
+       
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="../img/profile.jpg">
+	   	 	<h2 style="color: #fff;">Boka’s Notes</h2>
+	   	 	<p style="color: #fff;">Lorem Ipsum</p>
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		  
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+</ion-view>-->
+
+<style>
+	.button-area{position: relative;}
+	.button-area a.more-icon{display: inline-block; float: right; font-size:25px; padding: 0 5px; margin-top: -3px; color:#246879}
+	.button-area a.more-icon i{line-height: 16px; display: block;}
+	.show-hide-wrap{position: absolute; top:22px; right:0; z-index:99; min-width:100px; background: #fff; box-shadow:0px 0px 3px 0px rgba(0,0,0,0.3); border-radius: 3px; padding: 5px}
+	label.checkbox{display: block; position: relative; padding-left: 35px; margin-bottom: 5px;}
+	label.checkbox input[type="radio"]{position: absolute; left: 0; top:3px}
+</style>
+
+

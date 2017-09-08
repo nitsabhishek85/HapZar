@@ -1,0 +1,157 @@
+<div ng-if="alertInfo.is_video_link == 0">   
+    <div class="bar bar-subheader">
+	  <div class="row">
+	  	<div class="col col-20">
+	  		<img src="img/map-btn.png" style="margin: 0 auto; width: 100%; margin-top: -3px;" />
+	  	</div>
+	  	<div class="col col-60">
+	  		<label class="item item-input customize_input">
+		    
+		    <input type="text" style="color:#fff;">
+		    <i class="icon ion-android-microphone placeholder-icon"></i>
+		  </label>
+	  	</div>
+	  	<div class="col col-20">
+	  		<img src="img/sort.png" style="width: 100%;margin:0 auto; margin-top: -3px;" />
+	  	</div>
+	  	
+	  </div>
+    </div>
+    
+  <ion-content class="has-subheader has-footer" style="background: #f4f4f4;padding-top: 10px;" >
+	
+	
+	
+	<div class="row" ng-if="alertInfo.is_todo_complete == 0">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+			    <div  class="item home-list" style="padding: 15px 8px">
+			      
+			      <div class="head">
+			      	<h4 class="head_p_h4">Accept Project ?</h4>
+			      	<h4 class="head_c_h4"><i style="color: #bd0808" class="icon ion-android-cancel"></i></h4>
+			      </div>
+			      
+			      
+			      <div class="head" style="padding: 0 5px;">
+			      	
+			      	<h3 style="font-size: 16px;">{{alertInfo.project_name}}</h3>
+			      	<!--<p style=" padding:5px; white-space: normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id lacus accumsan, faucibus tortor ut, euismod enim. Proin quis tristique augue.</p>-->
+			      	
+			      	<p><b>From</b> </p>
+			     	<h4 style="font-size: 16px; font-weight: 600;">{{alertInfo.first_name}} {{alertInfo.last_name}}</h4>
+			    </div>
+			     
+			     
+                            <div class="row">
+			     	<div class="col" style="text-align: center;background: #379fba;margin: 3px;">
+			     	    <a ng-click="acceptAlert(1)" class="red_bttn"> Yes <br /> I'll Update </a>
+				</div>
+			     	<div class="col" style="text-align: center; background: #ff0000; margin: 3px">
+                                    <a ng-click="acceptAlert(2)" class="red_bttn"> No Sorry <br /> No Update</a>
+						
+			     	</div>
+                            </div>
+			</div>
+
+			 
+
+        </div>
+
+        
+	</div>
+	</div>
+
+	<div class="row" ng-if="alertInfo.is_todo_complete != 0">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+			<div ng-if="alertInfo.is_todo_complete != 0" class="item home-list" style="padding: 15px 8px">
+			      
+			      <div class="head">
+			      	<h4 class="head_p_h4">Close Task ?</h4>
+			      	<h4 class="head_c_h4"><i style="color: #bd0808" class="icon ion-android-cancel"></i></h4>
+			      </div>
+			      
+			      
+			      <div class="head" style="padding: 0 5px;">
+			      	
+			      	<h3 style="font-size: 16px;">{{todoInfo.name}}</h3>
+			      	<!--<p style=" padding:5px; white-space: normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id lacus accumsan, faucibus tortor ut, euismod enim. Proin quis tristique augue.</p>-->
+			      	
+			      	<!--<p><b>From</b> </p>-->
+			     	<h4 style="font-size: 16px; font-weight: 600;">{{todoInfo.to_user_name}} has requested you to complete the above todo.</h4>
+			    </div>
+			     
+			     
+			     <div class="row">
+			     	<div class="col" style="text-align: center;background: #379fba;margin: 3px;">
+			     		
+						 <a ng-click="acceptAlert(1)" class="red_bttn"> Yes </a>
+						
+			     	</div>
+			     	<div class="col" style="text-align: center; background: #ff0000; margin: 3px">
+			     		
+			     		<a ng-click="acceptAlert(2)" class="red_bttn"> No </a>
+						 
+						
+			     	</div>
+			     </div>
+			     
+			    </div>
+
+			 
+
+        </div>    
+
+        
+	</div>
+	</div>
+	<style>
+		.head {width: 100%; float: left; margin-bottom:10px;}
+		
+		h4.head_p_h4 { width: 75%; float: left;font-size: 20px;}
+		
+		h4.head_c_h4 {width: 15%;float: right;text-align: right;font-size: 22px;margin-top: -10px;}
+		a.red_bttn {color: #fff; text-decoration: none;}
+		
+	</style>
+
+	
+
+  </ion-content>
+</div>
+<div ng-if="alertInfo.is_video_link == 1"> 
+    <ion-content class="has-header has-footer" style="background: #ececec;top:62px;" >
+  	<div class="list no-margine-top no-margine-bottom vdo-det-top">
+            <h2 class="alert">Alert</h2>
+            <div class="row">
+                <div class="col text-center"> <h3 style="margin-bottom: 0px;"> {{alertInfo.project_name}} </h3></div>
+            </div>
+            <div class="row">
+                <div class="col vdo-det-top-icons"> <i class="icon ion-ios-person"></i> <span> {{alertInfo.first_name}} {{alertInfo.last_name}} </span></div>
+            </div>
+
+            <div class="item item-image vdo-item" style="margin-bottom: 0 !important; padding-bottom: 0 !important;" ng-bind-html="videoEmbLinkData">
+                <!--<iframe width="345" height="200" style="padding-bottom:0; margine-bottom:0;" src="https://www.youtube.com/embed/6v2L2UGZJAM" frameborder="0" allowfullscreen></iframe>-->
+
+                <!--<div class="row vdo-item-part">
+                        <div class="col text-left"> <i class="icon ion-wrench"></i> </div>
+                        <div class="col text-right"> <i class="icon ion-loop"></i> </div>
+                </div>-->
+            </div>
+
+            <div class="row">
+                <div class="col vdo-short-btn-area">
+                    <button class="button button-calm" ng-click="acceptVideoAlert(1)"> Accept View </button>
+                </div>
+                <div class="col vdo-short-btn-area">
+                    <button class="button button-positive" ng-click="acceptVideoAlert(2)"> Ignore </button>
+                </div>
+            </div>
+	</div>	           
+  </ion-content>
+</div>
+
+<style>
+    .ng-binding iframe{ height: auto; width: 100%; padding-bottom:0; margine-bottom:0;}
+</style>

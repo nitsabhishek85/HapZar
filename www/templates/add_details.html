@@ -1,0 +1,146 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-add"></i>
+            </button>
+        </div>
+    </div>-->
+
+  <ion-content class="has-header has-footer" style="background: #ececec;top:62px;" >
+
+
+
+	<div class="row">
+		<div class="individualss" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 5px; margin:5px 5px;float: left">
+
+
+
+
+<p style="width: 100%; float:left; margin:10px 0; display: flex; ">
+ <img style="width:33px;max-height: 33px; " class="list_img" ng-src="img/list2.png" />
+ <label style="flex:1; margin-top:0; margin-right:0;background: #fff; border-radius:3px" class="item item-input customize_input pop"><input placeholder="Todo / Task name"  type="text" style="color:#000; font-size: 14px" ng-model="todo.name"> </label>
+ </p>
+
+		<p  style="width: 100%; float:left; margin: 10px 0; display:flex; " ng-if="projectInfo.is_video_link == 0">
+                    <img style="width:33px; max-height: 33px; " class="list_img" ng-src="img/list2.png" />
+                    <label style=" flex:1; margin-top:0; margin-right:0px;background: #fff; border-radius:3px" class="item item-input customize_input pop ">
+			<select style="width: 100%;background:transparent;border: none;" ng-model="todo.to_id">
+
+                            <option ng-repeat="usrinfo in todouserlist" value="{{usrinfo.id}}" ng-selected="$index == 0">{{usrinfo.first_name}} {{usrinfo.last_name}}</option>
+		        </select>
+                    </label>
+
+
+		</p>
+
+
+
+		<p style="width: 100%; float:left; margin:10px 0;" ng-if="projectInfo.is_video_link == 0">
+ <img style="width:33px;float:left;" class="list_img" ng-src="img/list2.png" />
+ <label style="width:85%;float: right; margin-top:0; margin-right:0;background: #fff; border-radius:3px" class="item item-input customize_input pop"><input placeholder="Priority"  type="number" style="color:#000; font-size: 14px" ng-model="todo.priority"> </label>
+ </p>
+        <div style="width: 100%; float:left; margin:10px 0; display: flex; " ng-if="projectInfo.is_video_link == 1">
+ <img style="width:33px; max-height:33px; " class="list_img" ng-src="img/list2.png" />
+ <label style="flex: 1; margin-top:0; margin-right:0; background: #fff; border-radius:3px;" class="item item-input customize_input pop"><input placeholder="Item Number?" type="number" style="color:#000; font-size: 14px; float: right;" ng-model="todo.priority"> </label>
+       <div style=" margin-left: 10px; "><div class="button button-small" ng-click="DecreseItem()">-</div> <div class="button button-small" ng-click="IncreseItem()">+</div></div>
+       <!-- <div style=" float: right; margin-top:0; margin-right:0;">
+           <div class="dec button" ng-click="DecreseItem()">-</div> <div class="inc button" ng-click="IncreseItem()">+</div>
+       </div> -->
+     </div>
+
+ 	<p style="width: 100%; float:left; margin:10px 0 20px; display: flex; ">
+ <img style="width:33px; max-height: 33px; " class="list_img" ng-src="img/list2.png" />
+ <label style="flex:1; margin-top:0; margin-right:0;background: #fff; border-radius:3px" class="item item-input customize_input pop"><input placeholder="validity"  type="date" style="color:#000; font-size:14px; padding-top: 0" ng-model="todo.expire_date"> </label>
+ </p>
+
+
+                        <button ng-if="projectInfo.is_video_link == 0" class="button button-block button-positive save_btn" ng-click="saveTodo(todo)"> Save </button>
+			<button ng-if="projectInfo.is_video_link == 1" class="button button-block button-positive save_btn" ng-click="saveVideoTodo(todo)"> Save </button>
+				  <button class="button button-block button-assertive" ng-click="cancelTodo()">
+					  Cancel
+				  </button>
+
+        </div>
+	</div>
+
+
+
+
+
+  </ion-content>
+  <!--<div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item active"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item"><i class="icon ion-android-folder"></i> Projects</a>
+		<a class="tab-item" ><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu class="sidebar_bg">
+
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="img/profile.jpg">
+	   	 	<h2 style="color: #fff;">Boka’s Notes</h2>
+	   	 	<p style="color: #fff;">Lorem Ipsum</p>
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-log-out"></i></span>
+		    Privacy Policy
+		  </a>
+
+          </div>
+        </ion-content>
+      </ion-side-menu>
+
+    </ion-side-menus>
+</ion-view>-->
+
+
+
+
+<style>
+	.toggle-small input:checked + .track .handle {background: #ffffff;}
+	.assition_options_p {text-align: center; width:100%; display:block;position:relative;float: left; font-size:16px; font-weight:600; padding: 10px 0;}
+	.assition_options_p i {color: #2a7a8e;}
+	button.button.button-block.button-positive.save_btn {background: #379fba; border-color:#379fba; margin:20px 0 10px 0;}
+
+	.additional_part_extra {width: 100%;float: left;background: #fff;padding: 15px;display: block;margin: 5px auto 30px; border-radius:5px;}
+</style>

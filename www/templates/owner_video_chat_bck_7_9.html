@@ -1,0 +1,92 @@
+<ion-content class="has-header has-footer" style="background: #ececec;top:57px;" >
+  <div ng-if="DivChatSection">
+    <div class="newChatHead">
+        <div class="closeVideo" ng-click="openVideo();"><span class="ion-arrow-expand newChatHeadIcon"></span></div>
+      
+      <!--<span class="ion-thumbsup newChatHeadIcon">
+        <span class="notice">1</span>
+      </span>
+      <span class="ion-android-send newChatHeadIcon">
+        <span class="notice">2</span>
+      </span>-->
+      <span class="notice" style="font-size: 18px; margin-top: 4px;">{{projectInfo.name}}</span>
+      <div class="text-right" style="flex:1" ng-click="addTask();"> <span class="todo">TODO</span>
+        <span class="ion-plus-round newChatHeadIcon"></span>
+      </div>
+    </div>
+  </div>
+    <div class="list no-margine-top no-margine-bottom vdo-det-top">
+        <div class="newChatwarp">
+        <div ng-if="DivChatSection">
+            <div class="newChat">
+                <div ng-repeat="chatdata in GroupChatList" ng-if="project_owner_id == loggedindetails.id">
+                	
+                    <div ng-class="(chatdata.senderId == loggedindetails.id)?'resive':'send'" class="" >	
+                        <div ng-class="(chatdata.senderId == loggedindetails.id)?'msg-rt':'msg-lt'" class="">
+                            {{chatdata.message}}
+                        </div>
+                        <div class="info_sender">
+                            <p>{{chatdata.senderName}}</p>
+                        </div>
+                    </div>
+                    
+                </div>    
+                <div ng-repeat="chatdata in GroupChatList" ng-if="(project_owner_id != loggedindetails.id) && (chatdata.senderId == loggedindetails.id || chatdata.senderId == project_owner_id)">
+                    <div ng-class="(chatdata.senderId == loggedindetails.id)?'resive':'send'" class="" >
+                        <div class="" ng-class="(chatdata.senderId == loggedindetails.id)?'msg-rt':'msg-lt'">
+                            {{chatdata.message}}
+                        </div>
+                        <div class="info_sender">
+                            <p>{{chatdata.senderName}}</p>
+                        </div>
+                    </div>
+                    
+                </div>    
+            </div>
+            <div class="newchatBtn">
+                <button class="ion-android-camera newchaticon btnicon" style="color: #8693a7 "></button>
+                <input type="text" ng-model="chatset.email" class="newchatinput" />
+                <input type="hidden" ng-model="last_id">
+                <input type="hidden" ng-model="friend_id">
+                <button class="ion-android-send newchaticon btnicon" ng-click="send_chat()"></button>
+            </div>
+        </div>
+            <div class="bigImg active" ng-if="IsVisible">
+                <div class="closeVideo" ng-click="closeVideo()"><span class="ion-arrow-shrink"></span></div>
+                <div class="video-container" ng-bind-html="videoEmbLinkData" style="padding-bottom: 48.25%;"></div>
+            </div>
+        </div>
+
+
+        <div ng-if="todolist.length > 0">
+            <div class="item row suggest-item" ng-repeat="tododata in todolist">
+                <div class="col item-button-right">
+                    <p ng-click="todo_details(tododata.id)">{{tododata.name}}</p>
+                    <p> Priority ({{tododata.priority}}) </p>
+                    <button class="button button-balanced avilable button-new button-newOne" ng-if="tododata.to_id == 0 && tododata.todo_status==0">Available</button>
+                    <button class="button button-balanced choose button-new button-newOne" ng-if="tododata.to_id >= 0 && tododata.todo_status==1">{{tododata.first_name}} Accepted</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+
+<style>
+    .prj_title{
+        font-size: 17px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 17px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        content: "";
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
