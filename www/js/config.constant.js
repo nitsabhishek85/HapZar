@@ -4,7 +4,6 @@ app.constant('JS_REQUIRES', {
     //*** Scripts
     scripts: {
         //******frontend style******//
-
         //*** Controllers
         'login': ['js/controllers/SigninCtrl.js'],
         'projectlisting': ['js/controllers/ProjectListingCtrl.js','js/directives/sglclickDirective.js'],
