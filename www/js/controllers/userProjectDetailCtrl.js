@@ -105,6 +105,7 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
             });
         }
     }
+    
     $scope.todoList();
     $timeout($scope.todoList, 500);
     

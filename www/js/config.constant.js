@@ -52,7 +52,6 @@ app.constant('JS_REQUIRES', {
       files: ['js/dependency/ionic-rating.min.js','css/ionic-rating.css']
     }
   ]
-
 });
 
 
