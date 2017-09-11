@@ -1,0 +1,81 @@
+<div class="bar bar-subheader " style="background: #fff;">  
+    <div class="row">
+  	<div class="col col-90"><h2 class="title">{{projectInfo.name}}</h2></div>
+  	
+    </div>
+</div>
+
+<ion-content class="has-header has-footer" style="background: #ececec;top:62px;" >
+    <div class="list no-margine-top no-margine-bottom vdo-det-top" style="margin-top: 44px !important;">
+        <div class="row">
+            <div class="col col-80 vdo-det-top-icons"> <i class="icon ion-ios-person"></i> <span> {{projectInfo.first_name}} {{projectInfo.last_name}} </span></div>
+            <!--<div class="col col-10 vdo-det-top-icons"> <i class="icon ion-android-favorite"></i></div>
+            <div class="col col-10 vdo-det-top-icons" ng-click="todoChat();"> <i class="icon ion-chatbubble-working"></i></div>-->
+        </div>
+        
+	<div class="item item-image vdo-item" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
+            <div class="video-container" ng-bind-html="videoEmbLinkData"></div>
+        </div>
+	<div class="newChatwarp">
+            <div class="newChat">
+                <ion-scroll scrollY="true" style="height: 150px;" >
+                <div ng-repeat="chatdata in GroupChatList" ng-if="project_owner_id == loggedindetails.id">
+                	
+                    <div ng-class="(chatdata.senderId == loggedindetails.id)?'resive':'send'" class="" >	
+                        <div ng-class="(chatdata.senderId == loggedindetails.id)?'msg-rt':'msg-lt'" class="">
+                            {{chatdata.message}}
+                        </div>
+                        <div class="info_sender">
+                            <p>{{chatdata.senderName}}</p>
+                        </div>
+                    </div>
+                    
+                </div>    
+                <div ng-repeat="chatdata in GroupChatList" ng-if="(project_owner_id != loggedindetails.id) && (chatdata.senderId == loggedindetails.id || chatdata.senderId == project_owner_id)">
+                    <div ng-class="(chatdata.senderId == loggedindetails.id)?'resive':'send'" class="" >
+                        <div class="" ng-class="(chatdata.senderId == loggedindetails.id)?'msg-rt':'msg-lt'">
+                            {{chatdata.message}}
+                        </div>
+                        <div class="info_sender">
+                            <p>{{chatdata.senderName}}</p>
+                        </div>
+                    </div>
+                </div>  
+                </ion-scroll>    
+            </div>
+            <div class="newchatBtn">
+                <button class="ion-android-camera newchaticon btnicon" style="color: #8693a7 "></button>
+                <input type="text" ng-model="chatset.email" class="newchatinput" />
+                <input type="hidden" ng-model="last_id">
+                <input type="hidden" ng-model="friend_id">
+                <button class="ion-android-send newchaticon btnicon" ng-click="send_chat()"></button>
+            </div>
+        </div>
+    </div>
+    
+</ion-content>
+
+
+
+
+<style>
+    
+    .toggle-small input:checked + .track .handle {background: #ffffff;}
+    .assition_options_p {text-align: center; width:100%; display:block;position:relative;float: left; font-size:16px; font-weight:600; padding: 10px 0;}
+    .assition_options_p i {color: #2a7a8e;}
+    button.button.button-block.button-positive.save_btn {background: #379fba; border-color:#379fba; margin:20px 0 10px 0;}
+
+    .additional_part_extra {width: 100%;float: left;background: #fff;padding: 15px;display: block;margin: 5px auto 30px; border-radius:5px;}
+    .prj_title{
+        font-size: 17px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 17px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        content: "";
+        white-space: nowrap;
+    }
+</style>

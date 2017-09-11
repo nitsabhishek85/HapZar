@@ -1,0 +1,172 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" ng-hide="$exposeAside.active" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="../img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-search"></i>
+            </button>
+        </div>
+    </div>-->
+    
+    
+    
+  <ion-content class="has-header has-footer" style="background: #f4f4f4;top: 59px;" >
+	
+	<div class="row">
+		<div class="col" style="text-align:center; position: relative;">
+			<img class="profile_edit_img" src="{{profile_image_url}}" style="margin: 0 auto; " />
+			<!--<img src="../img/cam.png" class="img_changes" />-->
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+			   <div class="list profile_information">
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Name</span>
+				    <input class="profile_input" type="text" ng-model="user.name">
+				  </label>
+				  <!--<label class="item item-input item-stacked-label">
+				    <span class="input-label">Last Name</span>
+				    <input class="profile_input" type="text" placeholder="Suhr">
+				  </label>-->
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Email</span>
+				    <input class="profile_input" type="email" ng-model="user.email" disabled="disabled">
+				  </label>
+				  
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Phone No</span>
+				    <input class="profile_input" type="text" ng-model="user.mobile_number">
+				  </label>
+				  <!--<label class="item item-input item-stacked-label">
+				    <span class="input-label">Date of Birth</span>
+				    <input class="profile_input" type="text" placeholder="29.08.1988">
+				  </label>-->
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Address</span>
+				    <textarea class="profile_input" rows="3" cols="50" ng-model="user.location" style="padding-top: 5px"></textarea>
+				  
+				  </label>
+				  
+				   <label class="item item-input item-stacked-label">
+				    <span class="input-label">Upload image</span>
+				    <input style=" width: 100%; float: left;background: transparent;border: none;margin-top: 8px; line-height: 20px;" type="file" class="profile_input" name="fileToUpload" id="fileToUpload" ngf-select ng-model="user.profile_image" accept="image/*" capture="camera" /> 
+				  
+				  </label>
+				  
+				  
+				  <button ng-click="userSave(user)" class="button button-block button-positive save_btn">
+					  Save
+				  </button>
+				  
+				</div>
+			   
+        </div>
+	</div>
+	
+	
+
+	
+
+  </ion-content>
+  <!--<div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item active"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item"><i class="icon ion-android-folder"></i> Projects</a>
+		<a class="tab-item" ><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu expose-aside-when="large" class="sidebar_bg">
+       
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="../img/profile.jpg">
+	   	 	<h2 style="color: #fff;">Boka’s Notes</h2>
+	   	 	<p style="color: #fff;">Lorem Ipsum</p>
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		  
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+</ion-view>-->
+
+
+
+
+<style>
+	img.profile_edit_img {
+    margin: 0 auto;
+    width: 105px;
+    border-radius: 50%;
+    border: 3px solid #379fba;
+    height: 105px;
+}
+img.img_changes {
+        position: relative;
+    margin: 5px 0 0 0;
+    display: block;
+    /* float: left; */
+    width: 40px;
+}
+
+.list.profile_information {
+	background: transparent;
+    box-shadow: none;
+    width: 100%;
+    float: left;
+    padding: 5px;
+    margin: 0;
+}
+
+textarea.profile_input, input.profile_input {padding: 0 5px; margin: 5px 0 0 0; border: 1px solid #ccc; font-size:14px}
+label.item.item-input.item-stacked-label {padding: 0; margin-bottom: 5px}
+
+button.button.button-block.button-positive.save_btn {background: #379fba; border-color:#379fba; margin:20px 0 10px 0;}
+.input-label{font-size:14px}
+    
+</style>

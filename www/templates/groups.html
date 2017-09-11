@@ -1,0 +1,285 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-add"></i>
+            </button>
+        </div>
+    </div>-->
+	
+	<div class="bar bar-subheader" style="height: auto; background: #fff">
+		<div class="row">
+		<div class="individualss" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 5px 0; margin:5px 5px;float: left">
+
+
+
+	<p style="margin-bottom:10px; font-size:14px; color:#246879; text-align: center">Favourites, Groups and Hazpar Friends</p>
+	<div class="row pad-all-0">
+		<div class="col col-10 pad-left-0 pad-right-0">
+			<img style="width:100%; height:33px; margin-right: 0" class="list_img" ng-src="img/list2.png" />
+		</div>
+		<div class="col col-90 pad-right-0">
+			<label style="width:100%; background: #fff; border-radius: 3px; margin-top: 0" class="item item-input customize_input pop">
+				<input placeholder="Search"  type="text" ng-model="friends_filter.name" style="color:#000; font-size:14px">
+				<i class="icon ion-ios-search placeholder-icon"></i>
+			</label>
+			<!--<label class="item-input-wrapper">
+    			<input type="search" placeholder="Search">
+    			<i class="icon ion-ios-search placeholder-icon"></i>
+			</label>-->
+		</div>
+	</div>
+<p style="width: 100%; float:left; margin:0;">
+ 
+ 
+ </p>
+
+        </div>
+	</div>
+		<div class="tabs" style="position: relative; display: table; padding-top: 0">
+	  <a class="tab-item grp" ng-class="{active:tabGroup == 1}" ng-click="tabClick(1)" style="display: table-cell;font-size: 14px;">
+	    Favourites
+	  </a>
+	  <a class="tab-item grp" ng-class="{active:tabGroup == 2}" ng-click="tabSecond(2)" style="display: table-cell;font-size: 14px;">
+	    Groups
+	  </a>
+	  <a class="tab-item grp" ng-class="{active:tabGroup == 3}" ng-click="tabFriend()"  style="display: table-cell;font-size: 14px;">
+	    Friends
+	  </a>
+	   <a class="tab-item grp" ng-class="{active:tabGroup == 4}" ng-click="tabPhoneContact()"  style="display: table-cell;font-size:14px;">
+	    Contacts
+	  </a>
+	</div>
+	</div>
+
+  <ion-content class="has-header has-subfooter" style="top:235px;bottom: 70px;">
+	
+	<div class="row pad-all-0" ng-show="tabGroup == 1">
+		<div class="individualss" style="width: 100%; background: #fff;box-shadow: none;border-left: 0; padding: 5px; margin:0 0 5px 0;float: left;height: auto;padding-bottom: 20px;">
+
+			<!--<div class="row">
+				<div class="col">
+					<button class="button button-small button-stable" style=" width:55px;height: 25px;line-height: 25px;">
+					  Sort
+					</button>
+				</div>
+				<div class="col"></div>
+				<div class="col">
+					<button class="button button-small button-stable" style="height: 25px;line-height: 25px;">
+					  Update Favourite Lists
+					</button>
+				</div>
+			</div>-->
+			
+			<!--<div class="row">
+				<p style="width: 100%; float:left; margin:15px 5px;">
+
+ <label style="width:76%;float: left; margin-top:-3px; margin-right:5px;background: #fff;" class="item item-input customize_input pop"><input placeholder="Destination Address"  type="text" style="color:#000;"> </label>
+
+  
+  <button class="button button-small button-stable" style=" width:55px;height: 25px;line-height: 25px;float: right;background: #246879;color: #fff;">
+					  Add
+					</button>
+  
+ </p>
+			</div>-->
+			<p style="font-weight:600">Favourite List</p>
+			
+  <!--<ion-checkbox ng-repeat="userdata in userList" ng-model="userdata.favourite" ng-if="userdata.is_group == 1" ng-click="saveFavourite(userdata)">Group: {{userdata.name}}</ion-checkbox>-->
+  <div class="row pad-all-0" style="border-bottom: 1px solid #eee;margin-top: 0;padding-top: 5px;" ng-repeat="userdata in userList | filter:friends_filter" ng-if="userdata.is_group == 1">
+   	<div class="col">
+   		<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;" >Group : {{userdata.name}}</p>
+   	</div>
+   	
+   </div>
+   <div class="row pad-all-0" style="border-bottom: 1px solid #eee;margin-top: 0;padding-top: 5px;" ng-repeat="userdata in userList | filter:friends_filter" ng-if="userdata.is_group == 0">
+   	<div class="col">
+   		<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;" >{{userdata.name}}</p>
+   	</div>
+   	
+   </div>
+  <!--<ion-checkbox ng-repeat="userdata in userList" ng-model="userdata.favourite" ng-if="userdata.is_group != 1" ng-click="saveFavourite(userdata)">{{userdata.name}}</ion-checkbox>-->
+  <!--<ion-checkbox >Fred Wills</ion-checkbox>
+  <ion-checkbox >Jude Forest</ion-checkbox>
+   <ion-checkbox >Jude Forest</ion-checkbox>-->
+
+
+			
+
+        </div>
+	</div>
+
+	<div class="row pad-all-0" ng-show="tabGroup == 2">
+		<div class="individualss" ng-if="secondTabGroupAdd == 1" style="width: 100%; background: #fff;box-shadow: none;border-left: 0; padding: 5px; margin:5px 0px;float: left;height: auto;">
+			<div class="row pad-left-0 pad-right-0">
+				<div class="col col-80">
+					 <label style="width:100%; margin-top:0;background: #fff; border-radius: 3px" class="item item-input customize_input pop">
+					 	<input placeholder="Group Name" ng-model="group.name" type="text" style="color:#000; font-size:14px">
+					 </label>
+				</div>
+				<div class="col col-20">
+					  <button class="button button-small button-stable" style=" width:100%;height: 34px;line-height: 28px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px; " ng-click="saveGroup()">Add</button>
+				</div>
+			</div>
+			
+			
+			
+			
+  
+
+   <!--<div class="row pad-all-0" style="border-bottom: 1px solid #eee;margin-top: 0;padding-top: 5px;" ng-repeat="groupdata in groupList">
+   	<div class="col">
+   		<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;" ng-click="tabGroupUser(groupdata.id,groupdata.name)">{{groupdata.name}}</p>
+   	</div>
+   </div>-->
+   
+   <div class="row" ng-repeat="userdata in groupList | filter:friends_filter" ng-if="userdata.is_group == 1" style="border-bottom: 1px solid rgb(238, 238, 238);float: left;margin: 2px 0;">
+   	<div class="col-75">
+		<label class="item item-checkbox ng-valid">
+	     <div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"  ng-click="saveFavourite(userdata)"><input type="checkbox" ng-model="userdata.favourite"><i class="checkbox-icon"></i></div>
+	     <div class="item-content disable-pointer-events" ><span >{{userdata.name}}</span></div>
+	     </label> 
+   	</div>
+   	<div class="col-25">
+   		<button class="button button-small button-stable" style=" width:100%;height: 28px;line-height: 25px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px; top:18%;" ng-click="tabGroupUser(userdata.id,userdata.name)">Detail</button>
+   	</div>
+   </div>
+   
+   
+   <!--<div class="row" style="border-bottom: 1px solid rgb(238, 238, 238);float: left;margin: 2px 0;">
+   	<div class="col-75">
+   		
+      <label class="item item-checkbox ng-valid">
+	     <div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox"><i class="checkbox-icon"></i></div>
+	     <div class="item-content disable-pointer-events" ><span >Group: first_group</span></div>
+	     </label>
+  
+   	</div>
+   	<div class="col-25">
+   		<button class="button button-small button-stable" style=" width:100%;height: 28px;line-height: 25px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px; top:18%;" ng-click="saveGroup()">Add</button>
+   	</div>
+   </div>
+   
+   
+   <div class="row" style="border-bottom: 1px solid rgb(238, 238, 238);float: left;margin: 2px 0;">
+   	<div class="col-75">
+   	
+      <label class="item item-checkbox ng-valid">
+	     <div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox"><i class="checkbox-icon"></i></div>
+	     <div class="item-content disable-pointer-events" ><span >Group: first_group</span></div>
+	     </label>
+   	</div>
+   	<div class="col-25">
+   		<button class="button button-small button-stable" style=" width:100%;height: 28px;line-height: 25px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px" ng-click="saveGroup()">Add</button>
+   	</div>
+   </div>-->
+   
+   
+   
+
+
+			
+
+        </div>
+
+        <div ng-if="secondTabGroupAdd == 2" class="individualss" style="width: 100%; background: #fff;box-shadow: none;border-left: 0; padding: 5px; margin:5px 0px;float: left;height: auto;">
+
+			<div class="row pad-left-0 pad-right-0">
+				<div class="col col-50">
+					 <label style="width:100%; margin-top:0;background: #fff; border-radius: 3px" class="item item-input customize_input pop">
+					 	<input placeholder="Group Name" ng-model="group_details.name" type="text" style="color:#000; font-size:14px">
+					 	<input ng-model="group_details.id" type="hidden" >
+					 </label>
+				</div>
+				<div class="col col-25">
+					  <button class="button button-small button-stable" style=" width:100%;height: 34px;line-height: 28px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px; " ng-click="editGroup()">Edit</button>
+				</div>
+				<div class="col col-25">
+					  <button class="button button-small button-stable" style=" width:100%;height: 34px;line-height: 28px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px; " ng-click="deleteGroup()">Delete</button>
+				</div>
+			</div>
+			
+			
+			
+  <p>User List</p>
+			
+  <ion-checkbox ng-repeat="usergroupdata in userGroupList" ng-model="usergroupdata.favourite" ng-click="saveUserGroup(usergroupdata.id)">{{usergroupdata.name}}</ion-checkbox>
+
+
+			
+
+        </div>
+	</div>
+
+	<div class="row pad-all-0" ng-show="tabGroup == 3">
+		<div class="individualss" style="width: 100%; background: #fff;box-shadow: none;border-left: 0; padding: 5px; margin:5px 0px;float: left;height: auto;">
+	        <div class="row pad-all-0" style="border-bottom: 1px solid #eee;margin-top: 0;padding-top: 5px;" ng-repeat="userFriendListdata in userFriendList | filter:friends_filter" ng-if="userFriendListdata.is_group == 0">
+			   	<div class="col">
+			   		<!--<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;">{{userFriendListdata.first_name}} {{userFriendListdata.last_name}}</p>-->
+			   		<label class="item item-checkbox ng-valid">
+				     <div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"  ng-click="saveFavourite(userFriendListdata)"><input type="checkbox" ng-model="userFriendListdata.favourite"><i class="checkbox-icon"></i></div>
+				     <div class="item-content disable-pointer-events" ><span >{{userFriendListdata.name}}</span></div>
+				     </label>
+			   	</div>
+		   </div>
+	   </div>
+	</div>
+
+	<div class="row pad-all-0" ng-show="tabGroup == 4">
+		<div class="individualss" style="width: 100%; background: #fff;box-shadow: none;border-left: 0; padding: 5px; margin:5px 0px;float: left;height: auto;">
+	        <div class="row" style="border-bottom: 1px solid #eee;margin-top: 0;padding-top: 5px;" ng-repeat="contactListData in contactList | filter:friends_filter">
+			   	<!--<div class="col">
+			   		<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;">{{contactListData.name}} ({{contactListData.phone}})</p>
+			   	</div>-->
+			   	<div class="col-80">
+			   		<!--<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;" >{{userdata.name}}</p>-->
+			   		<p style="font-weight:500;color:#000;margin:5px 5px;font-size: 15px;">{{contactListData.name}} ({{contactListData.phone}})</p>
+			   	</div>
+			   	<div class="col-20" ng-if="contactListData.is_exist==0">
+			   		<button class="button button-small button-stable" style=" width:100%;height: 28px;line-height: 25px;background: #246879;color: #fff; box-shadow:none; border: 0; font-size:14px; top:18%;">Invite</button>
+			   	</div>
+
+		   </div>
+	   </div>
+	</div>
+
+	
+
+  </ion-content>
+   <!--<div class="bar bar-subfooter" style="height: 52px;">
+   <button class="button button-clear"></button>
+  <div class="title" style="font-size: 14px;background:#379fba;color: #fff;margin: 5px 12px 5px 12px">Finished adding People & Groups</div>
+  <button class="button button-clear"></button>
+   </div>
+  
+	 </ion-side-menu-content>
+	  
+      
+    </ion-side-menus>
+</ion-view>-->
+
+
+
+
+<style>
+	.toggle-small input:checked + .track .handle {background: #ffffff;}
+	.assition_options_p {text-align: center; width:100%; display:block;position:relative;float: left; font-size:16px; font-weight:600; padding: 10px 0;}
+	.assition_options_p i {color: #2a7a8e;}
+	button.button.button-block.button-positive.save_btn {background: #379fba; border-color:#379fba; margin:20px 0 10px 0;}
+	
+	.additional_part_extra {width: 100%;float: left;background: #fff;padding: 15px;display: block;margin: 5px auto 30px; border-radius:5px;}
+	
+	.item-checkbox span {color: #444;font-weight: 600;}
+	.item-checkbox.item {border: none; font-size:14px;  padding: 12px 10px 12px 60px;}
+</style>

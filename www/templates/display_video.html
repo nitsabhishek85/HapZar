@@ -1,0 +1,29 @@
+<div ng-init="emb_video_link()">
+    <ion-content class="has-header has-footer" style="background: #ececec;top:62px;" >
+  	<div class="list no-margine-top no-margine-bottom vdo-det-top">
+            <h2 class="alert">Video Preview</h2>
+            
+
+            <div class="item item-image vdo-item" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
+                <div class="video-container" ng-bind-html="videoEmbLinkData"></div>
+                <!--<iframe width="345" height="200" style="padding-bottom:0; margine-bottom:0;" src="https://www.youtube.com/embed/6v2L2UGZJAM" frameborder="0" allowfullscreen></iframe>-->
+
+                <!--<div class="row vdo-item-part">
+                        <div class="col text-left"> <i class="icon ion-wrench"></i> </div>
+                        <div class="col text-right"> <i class="icon ion-loop"></i> </div>
+                </div>-->
+            </div>
+
+            <div class="row">
+                <div class="col vdo-short-btn-area">
+                    <button class="button button-calm" ng-click="back_to_project_page();"> Back to project </button>
+                </div>
+            </div>
+	</div>	           
+  </ion-content>
+    
+</div>
+
+<style>
+    
+</style>

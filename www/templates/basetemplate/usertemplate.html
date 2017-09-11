@@ -1,0 +1,187 @@
+<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear" ng-click="projectAdd()">
+            	<i class="ion-android-add"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!--<div class="bar bar-subheader">
+	  <div class="row">
+	  	<div class="col col-20">
+	  		<img src="../img/map-btn.png" style="margin: 0 auto; width: 100%; margin-top: -3px;" />
+	  	</div>
+	  	<div class="col col-60">
+	  		<label class="item item-input customize_input">
+		    
+		    <input type="text" style="color:#fff;">
+		    <i class="icon ion-android-microphone placeholder-icon"></i>
+		  </label>
+	  	</div>
+	  	<div class="col col-20">
+	  		<img src="../img/sort.png" style="width: 100%;margin:0 auto; margin-top: -3px;" />
+	  	</div>
+	  	
+	  </div>
+    </div>-->
+    <ion-nav-view name="homeview"></ion-nav-view>
+  <!--<ion-content class="has-subheader has-footer" style="background: #379fba;" >
+	
+	<div class="row">
+		<div class="col">
+			<p style="color: #fff;">PROJECTS</p>
+		</div>
+		<div class="col">
+			<p style="text-align: right; color: #fff;">TO-DO'S</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+			    <div class="item home-list">
+			      <div class="home-item">
+			      	<h2>OnSite test Version 2</h2>
+			      	<p>Shared With: SW Group, HW Group...</p>
+			      </div>
+			      <div class="home-img">
+			      	<img src="../img/b1.png" style="margin: 0 auto; width:100%;" />
+			      </div>
+			    </div>
+
+				<div class="item home-list">
+			      <div class="home-item">
+			      	<h2>OnSite test Version 2</h2>
+			      	<p>Shared With: SW Group, HW Group...</p>
+			      </div>
+			      <div class="home-img">
+			      	<img src="../img/b3.png" style="margin: 0 auto; width:100%;" />
+			      </div>
+			    </div>
+			    
+			    
+			    <div class="item home-list">
+			      <div class="home-item">
+			      	<h2>OnSite test Version 2</h2>
+			      	<p>Shared With: SW Group, HW Group...</p>
+			      </div>
+			      <div class="home-img">
+			      	<img src="../img/b2.png" style="margin: 0 auto; width:100%;" />
+			      </div>
+			    </div>
+
+				<div class="item home-list">
+			      <div class="home-item">
+			      	<h2>OnSite test Version 2</h2>
+			      	<p>Shared With: SW Group, HW Group...</p>
+			      </div>
+			      <div class="home-img">
+			      	<img src="../img/b3.png" style="margin: 0 auto; width:100%;" />
+			      </div>
+			    </div>
+			    
+			    <div class="item home-list">
+			      <div class="home-item">
+			      	<h2>OnSite test Version 2</h2>
+			      	<p>Shared With: SW Group, HW Group...</p>
+			      </div>
+			      <div class="home-img">
+			      	<img src="../img/b1.png" style="margin: 0 auto; width:100%;" />
+			      </div>
+			    </div>
+
+				<div class="item home-list">
+			      <div class="home-item">
+			      	<h2>OnSite test Version 2</h2>
+			      	<p>Shared With: SW Group, HW Group...</p>
+			      </div>
+			      <div class="home-img">
+			      	<img src="../img/b2.png" style="margin: 0 auto; width:100%;" />
+			      </div>
+			    </div>
+
+        </div>
+	</div>
+	
+	
+
+	
+
+  </ion-content>-->
+  <div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item" ui-sref-active="active" ui-sref="user.home"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item" ui-sref-active="active" ui-sref="user.groups"><i class="icon ion-person-stalker"></i> Friends</a>
+		<a class="tab-item" ui-sref-active="active" ui-sref="user.chatlist"><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item" ui-sref-active="active" ui-sref="user.alert"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item" ui-sref-active="active" ui-sref="user.to_do_list"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+		<a class="tab-item" ng-click="myGoBack()"><i class="icon ion-ios-undo"></i> Back</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu  class="sidebar_bg">
+       
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="{{profile_image_urll}}">
+	   	 	<h2 style="color: #fff; padding-top: 8px">{{profile_name}}</h2>
+	   	 	<!--<p style="color: #fff;">Lorem Ipsum</p>-->
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a menu-close ui-sref="user.details" style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" >
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    Profile
+		  </a>
+
+		  <!--<a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>-->
+
+		  <a class="item item-icon-left" href="#" ng-click="userLogout()" style="border-width: 1px">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-log-out"></i></span>
+		    Logout
+		  </a>
+		  
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+</ion-view>
+
+
+
+
+<style>
+	
+</style>

@@ -1,0 +1,16 @@
+﻿app.controller('NotificationCtrl', function ($scope,$ionicPopup) {
+    //ionic.material.ink.displayEffect();
+    
+    $scope.showPopup = function() {
+        var alertPopup = $ionicPopup.alert({
+        	template: '<div class="custome_popup"><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="Current Address" type="text" style="color:#000;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="Destination Address"  type="text" style="color:#fff;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="Start Time"  type="text" style="color:#fff;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="End Time"  type="text" style="color:#fff;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="Date"  type="text" style="color:#fff;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="Returning"  type="text" style="color:#fff;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p><p><img style="width:25px;floatleft;" class="list_img" ng-src="img/list.png" /><label style="width:82%;float:right; margin-top:0px; margin-right:5px;" class="item item-input customize_input pop"><input placeholder="Notes"  type="text" style="color:#fff;"><i style="font-size:17px; margin-right:5px;" class="icon ion-android-microphone placeholder-icon"></i> </label></p></div>',
+        	title: 'Aditional Options',
+            buttons:[{text: 'Send'},{text: 'Cancel',type: 'button-positive'}]
+        });
+
+        $timeout(function() {
+            //ionic.material.ink.displayEffect();
+            ionicMaterialInk.displayEffect();
+        }, 0);
+    };
+});

@@ -1,0 +1,157 @@
+<!--<ion-view view-title="Intro">
+
+<ion-side-menus>
+ <ion-side-menu-content>
+<div class="row bar bar-header">
+        <div class="col col-20">
+            <button menu-toggle="left" ng-hide="$exposeAside.active" class="button button-icon button-clear ion-navicon"></button>
+        </div>
+        <div class="col col-60">
+             <div class="inner_logo">
+                <img src="../img/s-logo.png" style="width: 50%;" />
+            </div>
+        </div>
+        <div class="col col-20">
+            <button class="button button-icon button-clear">
+            	<i class="ion-android-search"></i>
+            </button>
+        </div>
+    </div>-->
+    
+    
+    
+  <ion-content class="has-header has-footer" style="background: #379fba;margin-top: 14px; padding-top: 10px;" >
+	
+	<!--<div class="row">
+		<div class="col">
+			<p style="color: #fff;">PROJECTS</p>
+		</div>
+		<div class="col">
+			<p style="text-align: right; color: #fff;">TO-DO'S</p>
+		</div>
+	</div>-->
+	
+	<div class="row">
+		<div class="list list-inset" style="width: 100%; background: transparent;box-shadow: none;border-left: 0; padding: 0; margin:0 5px;">
+
+			    <div class="item home-list">
+			      <div class="home-item detail_home_part" style="width: 85%; float: left">
+			      	<h2>{{todoInfo.name}}</h2>
+			      	<!--<p><i style="font-size: 20px; vertical-align: sub;" class="icon ion-ios-chatbubble-outline"></i>&nbsp;Message Project Members</p>-->
+			      	
+			      </div>
+			      <!--<div class="home-imgdetail_img_edit" style="width: 14%; float:right; text-align: center;" ng-click="addTask();">
+			      	<i style="font-size: 30px;color: #379fba;" class="icon ion-android-add-circle"></i>
+			      </div>-->
+			      
+			      <p style="width: 100%; float:left"><b>Project</b> : {{todoInfo.project_name}}</p>
+			      <p style="width: 100%; float:left"><b>Project Owner</b> : {{todoInfo.first_name}} {{todoInfo.last_name}}</p>
+			      <p style="width: 100%; float:left"><b>Assigned to Owner</b> : {{todoInfo.to_user_name}}</p>
+			      <!--<p style="width: 100%; float:left" ng-if="todoInfo.to_id == loggedindetails.id && todoInfo.is_complete_owner == 0 && todoInfo.is_complete_user == 0"><button class="button button-block button-assertive" ng-click="todoClose(todoInfo.id)">Close</button></p>
+			      <p style="width: 100%; float:left" ng-if="todoInfo.from_id == loggedindetails.id && (todoInfo.is_complete_owner == 0 || todoInfo.is_complete_user == 0)"><button class="button button-block button-assertive" ng-click="todoClose(todoInfo.id)">Close</button></p>-->
+			    </div>
+
+				
+			    
+			    
+			    
+
+        </div>
+	</div>
+	
+	
+
+	<style>
+		.first_col {
+    width: 18%;
+    float: left;
+    text-align: center;
+    font-size: 13px;
+}
+
+.second_col {
+    width: 62%;
+    float: left;
+    text-align: center;
+     font-size: 13px;
+   
+}
+.Third_col {
+    width: 20%;
+    float: right;
+    text-align: center;
+     font-size: 13px;
+   
+}
+
+
+.second_col p {    white-space: normal;
+    text-align: center;
+       line-height: 15px;}
+       
+       .each_job_details {width: 100%; margin:8px auto; float: left; padding-bottom: 5px;    border-bottom: 1px solid #ccc;}
+       
+        .each_job_details:last-child {border-bottom: none;}
+
+	</style>
+
+  </ion-content>
+  <!--<div class="tabs tabs-icon-top footer-icon-bar">
+		<a class="tab-item active"><i class="icon ion-ios-home"></i> Home</a>
+		<a class="tab-item"><i class="icon ion-android-folder"></i> Projects</a>
+		<a class="tab-item" ><i class="icon ion-ios-chatbubble"></i> Chat</a>
+		<a class="tab-item"><i class="icon ion-ios-bell"></i> Alert</a>
+		<a class="tab-item"><i class="icon ion-android-checkbox-outline"></i> To Do's</a>
+	</div>
+	 </ion-side-menu-content>
+	  <ion-side-menu class="sidebar_bg">
+       
+         <ion-content>
+          <div class="item item-avatar" style="background: #379fba">
+	    	<img src="../img/profile.jpg">
+	   	 	<h2 style="color: #fff;">Boka’s Notes</h2>
+	   	 	<p style="color: #fff;">Lorem Ipsum</p>
+	 	  </div>
+          <div class="list menu_left" style="background: #fff;box-shadow: none;">
+            <a style=" border-bottom: 2px solid #379fba;" class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		   <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-people"></i></span>
+		    About Us
+		  </a>
+
+		  <a style=" border-bottom: 2px solid #379fba;"  class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-android-checkbox-outline"></i></span>
+		    Terms &amp; Condition
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <span><i style="left: 5px;font-size: 21px;" class="icon ion-lock-combination"></i></span>
+		    Privacy Policy
+		  </a>
+		  
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+</ion-view>-->
+
+
+
+
+<style>
+	
+</style>
