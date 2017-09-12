@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/var/www/html/ionic_prj/hapzar/www/templates/video_chat.html</file>
             <file>file:/var/www/html/ionic_prj/hapzar/www/js/app.js</file>
             <file>file:/var/www/html/ionic_prj/hapzar/www/js/config.constant.js</file>
             <file>file:/var/www/html/ionic_prj/hapzar/www/templates/user_videoproject_details.html</file>
             <file>file:/var/www/html/ionic_prj/hapzar/www/js/controllers/userProjectDetailCtrl.js</file>
             <file>file:/var/www/html/ionic_prj/hapzar/www/templates/owner_video_chat.html</file>
+=======
+            <file>file:/var/www/html/ionic_prj/hapzar/www/js/controllers/UserTemplateCtrl.js</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/templates/video_chat.html</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/js/services/userService.js</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/js/app.js</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/js/controllers/AppCtrl.js</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/templates/user_videoproject_details.html</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/templates/owner_video_chat.html</file>
+            <file>file:/var/www/html/ionic_prj/hapzar/www/templates/video_home_details.html</file>
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
         </group>
     </open-files>
 </project-private>

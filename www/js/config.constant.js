@@ -4,6 +4,10 @@ app.constant('JS_REQUIRES', {
     //*** Scripts
     scripts: {
         //******frontend style******//
+<<<<<<< HEAD
+=======
+
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
         //*** Controllers
         'login': ['js/controllers/SigninCtrl.js'],
         'projectlisting': ['js/controllers/ProjectListingCtrl.js','js/directives/sglclickDirective.js'],
@@ -30,7 +34,15 @@ app.constant('JS_REQUIRES', {
         'videoproject_chat':['js/controllers/videoProjectChatCtrl.js'],
         'edittodo':['js/controllers/TodoEditCtrl.js']
         
+<<<<<<< HEAD
         //*** Services
+=======
+        
+
+
+        //*** Services
+
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     },
   modules: [
     {
@@ -50,6 +62,10 @@ app.constant('JS_REQUIRES', {
       files: ['js/dependency/ionic-rating.min.js','css/ionic-rating.css']
     }
   ]
+<<<<<<< HEAD
+=======
+
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 });
 
 

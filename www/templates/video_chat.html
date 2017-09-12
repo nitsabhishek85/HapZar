@@ -1,8 +1,15 @@
 <div class="bar bar-subheader " style="background: #fff;">  
     <div class="row">
   	<div class="col col-90"><h2 class="title">{{projectInfo.name}}</h2></div>
+<<<<<<< HEAD
     </div>
 </div>
+=======
+  	
+    </div>
+</div>
+
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 <ion-content class="has-header has-footer" style="background: #ececec;top:62px;" >
     <div class="list no-margine-top no-margine-bottom vdo-det-top" style="margin-top: 44px !important;">
         <div class="row">
@@ -16,8 +23,13 @@
         </div>
 	<div class="newChatwarp">
             <div class="newChat">
+<<<<<<< HEAD
                 <ion-scroll scrollY="true" style="height: 150px;" >
                 <div ng-repeat="chatdata in GroupChatList" ng-if="project_owner_id == loggedindetails.id">
+=======
+                <div ng-repeat="chatdata in GroupChatList" ng-if="project_owner_id == loggedindetails.id">
+                	
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
                     <div ng-class="(chatdata.senderId == loggedindetails.id)?'resive':'send'" class="" >	
                         <div ng-class="(chatdata.senderId == loggedindetails.id)?'msg-rt':'msg-lt'" class="">
                             {{chatdata.message}}
@@ -26,6 +38,10 @@
                             <p>{{chatdata.senderName}}</p>
                         </div>
                     </div>
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
                 </div>    
                 <div ng-repeat="chatdata in GroupChatList" ng-if="(project_owner_id != loggedindetails.id) && (chatdata.senderId == loggedindetails.id || chatdata.senderId == project_owner_id)">
                     <div ng-class="(chatdata.senderId == loggedindetails.id)?'resive':'send'" class="" >
@@ -36,8 +52,12 @@
                             <p>{{chatdata.senderName}}</p>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>  
                 </ion-scroll>    
+=======
+                </div>    
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
             </div>
             <div class="newchatBtn">
                 <button class="ion-android-camera newchaticon btnicon" style="color: #8693a7 "></button>
@@ -47,9 +67,19 @@
                 <button class="ion-android-send newchaticon btnicon" ng-click="send_chat()"></button>
             </div>
         </div>
+<<<<<<< HEAD
     </div>    
 </ion-content>
 
+=======
+    </div>
+    
+</ion-content>
+
+
+
+
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 <style>
     
     .toggle-small input:checked + .track .handle {background: #ffffff;}

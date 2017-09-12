@@ -1,11 +1,20 @@
 <div class="bar bar-subheader " style="background: #fff;">  
     <div class="row">
+<<<<<<< HEAD
   	<div class="col col-80"><h2 class="title1">{{projectInfo.name}}</h2></div>
+=======
+  	<div class="col col-80"><h2 class="title">{{projectInfo.name}}</h2></div>
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
   	<!--<div class="col col-10"><i class="icon ion-android-favorite"></i></div>-->
   	<div class="col col-10" ng-click="todoChat();"><i class="icon ion-chatbubble-working"></i></div>
     </div>
 </div>
+<<<<<<< HEAD
 <ion-content class="has-header has-footer" style="background: #ececec;top:62px;">
+=======
+
+<ion-content class="has-header has-footer" style="background: #ececec;top:62px;" >
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     <div class="list no-margine-top no-margine-bottom vdo-det-top" style="margin-top: 44px !important;">
         <div class="row">
             <div class="col col-70 vdo-det-top-icons"> <i class="icon ion-ios-person"></i> <span> {{projectInfo.first_name}} {{projectInfo.last_name}} </span></div>
@@ -22,6 +31,10 @@
             </div>-->
             <div class="row vdo-item-part-btm">
                 <div class="col col-90 text-right"> <i class="icon ion-thumbsup"></i> </div>
+<<<<<<< HEAD
+=======
+                <!--<div class="col col-10 text-right"> <i class="icon ion-android-happy"></i> </div>-->
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
             </div>
         </div>
 	
@@ -39,14 +52,24 @@
             </div>
         </div>-->
         
+<<<<<<< HEAD
         <div ng-if="todolist.length > 0 && inlineChatDiv">
+=======
+        <div ng-if="todolist.length > 0">
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
             <div class="item row suggest-item" ng-repeat="tododata in todolist">
                 <div class="col item-button-right" ng-show="!tododata.IsVisible">
                     <p ng-click="video_todo_details(tododata.id)">{{tododata.name}}</p>
                     <p> Item Number ({{tododata.priority}}) </p>
+<<<<<<< HEAD
                     <button class="button button-balanced avilable button-small button-new button-newOne" ng-if="tododata.to_id == 0 && tododata.todo_status==0" ng-click="user_available_div(tododata)">Available</button>
                     <button class="button button-balanced choose-b button-new button-newOne" ng-if="tododata.to_id == loggedindetails.id && tododata.todo_status==1" ng-click="user_available_div(tododata)"> Accepted</button>
                     <button class="button button-balanced taken button-new button-newOne" ng-if="tododata.to_id != loggedindetails.id && tododata.todo_status==1"> {{tododata.first_name}} Taken </button>
+=======
+                    <button class="button button-balanced avilable button-small" ng-if="tododata.to_id == 0 && tododata.todo_status==0" ng-click="user_available_div(tododata)">Available</button>
+                    <button class="button button-balanced choose-b button-new button-newOne" ng-if="tododata.to_id == loggedindetails.id && tododata.todo_status==1" ng-click="user_available_div(tododata)"> Accepted</button>
+                    <button class="button button-balanced taken" ng-if="tododata.to_id != loggedindetails.id && tododata.todo_status==1"> Taken </button>
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
                     <!--<button class="button button-balanced avilable" ng-if="tododata.to_id == 0 && tododata.todo_status==0">Edit</button>-->
 		</div>	
                 <!--<div class="col item-button-right btn-rt" ng-if="tododata.to_id >= 0 && tododata.todo_status >=0 && tododata.IsVisible">
@@ -71,6 +94,7 @@
                         <i class="icon ion-ios-help-empty" ng-click="todoChat();"></i>
                     </div>
 		</div>
+<<<<<<< HEAD
             </div>
         </div>
         
@@ -110,6 +134,15 @@
                 <button class="ion-android-send newchaticon btnicon" style="padding-right: 0px;" ng-click="send_chat()"></button>
             </div>
         </div>
+=======
+                
+                
+                
+                
+            </div>
+        </div>
+        
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
         
 	<!--<div class="item row suggest-item">
 		<div class="col item-button-right">
@@ -152,6 +185,17 @@
     </div>	        
   </ion-content>
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
   <!--<ion-content class="has-header has-footer" style="background: #379fba;margin-top: 14px; padding-top: 10px;" >
 	
 	
@@ -260,6 +304,7 @@
     button.button.button-block.button-positive.save_btn {background: #379fba; border-color:#379fba; margin:20px 0 10px 0;}
 
     .additional_part_extra {width: 100%;float: left;background: #fff;padding: 15px;display: block;margin: 5px auto 30px; border-radius:5px;}
+<<<<<<< HEAD
 .bar .title1 {
     text-transform: uppercase;
     font-size: 17px;
@@ -277,4 +322,6 @@
     white-space: nowrap;
     z-index: 0;
 }
+=======
+>>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 </style>
