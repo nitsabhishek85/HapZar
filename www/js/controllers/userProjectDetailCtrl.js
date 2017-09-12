@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $stateParams,$ionicScrollDelegate, ionicMaterialInk,userService,$ionicPopup,$ionicLoading,myAuth,$sce,$timeout) {
-=======
-app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $stateParams, ionicMaterialInk,userService,$ionicPopup,$ionicLoading,myAuth,$sce,$timeout) {
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     //ionic.material.ink.displayEffect();
     ionicMaterialInk.displayEffect();
 
@@ -13,7 +9,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
 	  }else{
       $location.path('/');
     }
-<<<<<<< HEAD
     $rootScope.GroupChatList = [];
     $scope.projectInfo = [];
     $scope.videoEmbLinkData='';
@@ -25,10 +20,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
     $scope.chatset={
         msg:''
     };
-=======
-    $scope.projectInfo = [];
-    $scope.videoEmbLinkData='';
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     $scope.projectDetail = function() {
       $ionicLoading.show({
         template: 'Loading...'
@@ -38,7 +29,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
           $scope.projectInfo = data.PrjList;  
           //console.log($scope.projectInfo); 
           if($scope.projectInfo.is_video_link == 1){
-<<<<<<< HEAD
             $scope.videoEmbLinkData=$sce.trustAsHtml($scope.projectInfo.embed_video);
             userService.getvideotodoList($stateParams.id).then(
               function (data) {          
@@ -80,10 +70,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
           $scope.project_owner_id =$scope.projectInfo.user_id;
           $scope.project_owner_name =$scope.projectInfo.first_name+' '+$scope.projectInfo.last_name;
           $scope.projectId = $scope.projectInfo.id;
-=======
-              $scope.videoEmbLinkData=$sce.trustAsHtml($scope.projectInfo.embed_video);
-          }      
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
           $ionicLoading.hide();
         },
       function (errorMessage) {
@@ -98,7 +84,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
     $scope.projectDetail();
     $scope.project_close = '';
 
-<<<<<<< HEAD
     if ($scope.loggedindetails) {
         $rootScope.socket = io('http://111.93.169.90:8097', { query: "userId=" + $scope.loggedindetails.id });
         //$rootScope.socket = io('http://192.168.1.118:8097', { query: "userId=" + $scope.loggedindetails.id });
@@ -114,8 +99,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
         }
     }
 
-=======
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     $scope.todoList = function() {
       $ionicLoading.show({
         template: 'Loading...'
@@ -157,15 +140,9 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
 
             });
         }
-<<<<<<< HEAD
     } 
     //$scope.todoList();    
     //$timeout($scope.todoList, 500);
-=======
-    }
-    $scope.todoList();
-    $timeout($scope.todoList, 500);
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     
     $scope.addTask = function() {
       //alert('/user_add_todo/'+$stateParams.id+'/'+$stateParams.user_id);
@@ -188,7 +165,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
       
     }
 
-<<<<<<< HEAD
     $scope.get_chat = function () {
         $ionicLoading.show({
             template: 'Loading...'
@@ -249,8 +225,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
 
     }
     
-=======
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     $scope.todo_details = function(tid) {
       $location.path('/to_do_detail/'+tid);
     }
@@ -260,7 +234,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
     }
     
     $scope.todoChat = function() {
-<<<<<<< HEAD
         //$location.path('/todo_videochat/'+$stateParams.id);
         $scope.inlineChatDiv=false;
         $scope.get_chat();
@@ -271,9 +244,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
         $scope.inlineChatDiv=true;
        
         //$scope.get_chat();
-=======
-        $location.path('/todo_videochat/'+$stateParams.id);
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     }
     
     $scope.projectClose = function(p_id) {
@@ -422,7 +392,6 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
         });
     }
     
-<<<<<<< HEAD
     $rootScope.socket.on('chat_rcv_group', function (data) {
         //console.log('received');
         $scope.show = true;
@@ -447,6 +416,4 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
         $rootScope.socket.emit('join:room', room);
     }*/
     
-=======
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 });
