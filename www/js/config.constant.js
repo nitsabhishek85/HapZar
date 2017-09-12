@@ -31,7 +31,6 @@ app.constant('JS_REQUIRES', {
         'edittodo':['js/controllers/TodoEditCtrl.js']
         
         //*** Services
-
     },
   modules: [
     {

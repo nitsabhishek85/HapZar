@@ -29,7 +29,43 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
           $scope.projectInfo = data.PrjList;  
           //console.log($scope.projectInfo); 
           if($scope.projectInfo.is_video_link == 1){
-              $scope.videoEmbLinkData=$sce.trustAsHtml($scope.projectInfo.embed_video);
+            $scope.videoEmbLinkData=$sce.trustAsHtml($scope.projectInfo.embed_video);
+            userService.getvideotodoList($stateParams.id).then(
+              function (data) {          
+                $scope.todolist = data.TodoList; 
+                $scope.project_close = data.all_complete;  
+                angular.forEach($scope.todolist, function (itemval) {
+                    if (itemval.to_id == 0) {
+                        itemval.IsVisible = false;                
+                    }else{
+                        //itemval.favourite = false; 
+                        itemval.IsVisible = false;
+                    }
+                });  
+            
+                //$ionicLoading.hide();
+              },
+            function (errorMessage) {
+              //$ionicLoading.hide();
+              $scope.todolist = [];
+              //console.log(11);
+
+            });
+              
+          }else{
+            userService.getusertodoList($scope.loggedindetails.id,$stateParams.id).then(
+              function (data) {          
+                $scope.todolist = data.TodoList;  
+                $scope.project_close = data.all_complete;  
+                //console.log($scope.todolist);      
+                $ionicLoading.hide();
+              },
+            function (errorMessage) {
+              $ionicLoading.hide();
+              $scope.todolist = [];
+              //console.log(11);
+
+            });
           }
           $scope.project_owner_id =$scope.projectInfo.user_id;
           $scope.project_owner_name =$scope.projectInfo.first_name+' '+$scope.projectInfo.last_name;
@@ -104,9 +140,9 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
 
             });
         }
-    }
-    $scope.todoList();
-    $timeout($scope.todoList, 500);
+    } 
+    //$scope.todoList();    
+    //$timeout($scope.todoList, 500);
     
     $scope.addTask = function() {
       //alert('/user_add_todo/'+$stateParams.id+'/'+$stateParams.user_id);
@@ -201,10 +237,12 @@ app.controller('userProjectDetailCtrl', function ($scope,$rootScope,$location, $
         //$location.path('/todo_videochat/'+$stateParams.id);
         $scope.inlineChatDiv=false;
         $scope.get_chat();
+        //console.log('hi');
     }
     
     $scope.todoChatClose = function() {
         $scope.inlineChatDiv=true;
+       
         //$scope.get_chat();
     }
     

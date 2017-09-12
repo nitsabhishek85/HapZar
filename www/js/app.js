@@ -5,8 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('starter', ['ionic', 'ionic-material','authFront','oc.lazyLoad','ngCordova']);
 
-app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
-	
+app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {	
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -36,10 +35,10 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
           // register to get registrationId
           $cordovaPushV5.register().then(function(registrationId) {
             // save `registrationId` somewhere;
-            console.log(registrationId);
+            //console.log(registrationId);
              $rootScope.uuid = registrationId;
              var deviceInformation = ionic.Platform.device();
-              console.log(deviceInformation);
+              //console.log(deviceInformation);
               $rootScope.deviceType = deviceInformation.platform.toLowerCase();
           })
         });
@@ -53,16 +52,13 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
           // data.additionalData
           //$state.go();
           console.log(data);
-          if(data.additionalData.encoded.type =='chat')
-            {
+            if(data.additionalData.encoded.type =='chat'){
                 $state.go('user.chat',{id:data.additionalData.encoded.id})
-            }
-            else if(data.additionalData.encoded.type == 'groupchat'){
-              $state.go('user.groupchat',{id:data.additionalData.encoded.id})
+            }else if(data.additionalData.encoded.type == 'groupchat'){
+                $state.go('user.groupchat',{id:data.additionalData.encoded.id})
             }else{
-              $state.go('user.alert');
+                $state.go('user.alert');
             }
-          
         });
 
         if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -72,10 +68,7 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
             StatusBar.styleDefault();
         }
     });
-})
-
-
-
+});
 
 app.run(['$rootScope', '$state', '$stateParams',
   function ($rootScope, $state, $stateParams,myAuth) {
@@ -95,7 +88,6 @@ app.run(['$rootScope', '$state', '$stateParams',
          //$rootScope.stripe_publish_key = "pk_test_a666FKcWDKrfw2xVcLDuUqdj";
           $rootScope.stripe_publish_key = "";
   }]);
-
 
 app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$ocLazyLoadProvider', 'JS_REQUIRES',
   function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $ocLazyLoadProvider, jsRequires,$authProvider,$locationProvider) {

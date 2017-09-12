@@ -1,4 +1,4 @@
-﻿app.controller('UserProfileCtrl', function ($scope,$rootScope,$location, $stateParams, ionicMaterialInk,userService,$ionicPopup,$ionicLoading,myAuth,storeService) {
+app.controller('UserProfileCtrl', function ($scope,$rootScope,$location, $stateParams, ionicMaterialInk,userService,$ionicPopup,$ionicLoading,myAuth,storeService) {
     //ionic.material.ink.displayEffect();
     ionicMaterialInk.displayEffect();
 
