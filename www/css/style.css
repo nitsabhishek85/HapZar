@@ -431,10 +431,7 @@ p.topic_info.pr {width: 59%;float: right;padding-left: 5px;}
 .newChat .send .info_sender p{ font-size: 11px; color:#808080;}
 
 .newchatBtn .ion-android-send{ color: #8492A6;}
-<<<<<<< HEAD
 
 .chat-close{ position: absolute; z-index: 100; right: 0; top:-36px; box-shadow: none !important; }
 
 .chat-close .button-dark{background: #d2d2d2 !important; border: none; color:#000000 !important; font-size: 12px !important; padding-top: 0 !important; padding-bottom: 0 !important; line-height: 0 !important; box-shadow: none !important; min-height: 20px !important; border-radius: 4px 4px 0 0;}
-=======
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec

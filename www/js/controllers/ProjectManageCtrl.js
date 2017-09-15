@@ -96,7 +96,7 @@ app.controller('ProjectManageCtrl', function ($scope,$rootScope,$state,$location
 			
 		});
   	};
-  	$scope.userList();
+    $scope.userList();
 
     $scope.projectSave = function() {
     //console.log(cart);

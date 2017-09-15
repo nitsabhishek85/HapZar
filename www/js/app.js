@@ -5,17 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('starter', ['ionic', 'ionic-material','authFront','oc.lazyLoad','ngCordova']);
 
-<<<<<<< HEAD
 app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {	
-=======
-app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
-	
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-
-
         var options = {
           android: {
             senderID: "201139529475"
@@ -40,17 +33,10 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
           // register to get registrationId
           $cordovaPushV5.register().then(function(registrationId) {
             // save `registrationId` somewhere;
-<<<<<<< HEAD
             //console.log(registrationId);
              $rootScope.uuid = registrationId;
              var deviceInformation = ionic.Platform.device();
               //console.log(deviceInformation);
-=======
-            console.log(registrationId);
-             $rootScope.uuid = registrationId;
-             var deviceInformation = ionic.Platform.device();
-              console.log(deviceInformation);
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
               $rootScope.deviceType = deviceInformation.platform.toLowerCase();
           })
         });
@@ -64,7 +50,6 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
           // data.additionalData
           //$state.go();
           console.log(data);
-<<<<<<< HEAD
             if(data.additionalData.encoded.type =='chat'){
                 $state.go('user.chat',{id:data.additionalData.encoded.id})
             }else if(data.additionalData.encoded.type == 'groupchat'){
@@ -72,18 +57,6 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
             }else{
                 $state.go('user.alert');
             }
-=======
-          if(data.additionalData.encoded.type =='chat')
-            {
-                $state.go('user.chat',{id:data.additionalData.encoded.id})
-            }
-            else if(data.additionalData.encoded.type == 'groupchat'){
-              $state.go('user.groupchat',{id:data.additionalData.encoded.id})
-            }else{
-              $state.go('user.alert');
-            }
-          
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
         });
 
         if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -93,14 +66,7 @@ app.run(function ($ionicPlatform,$cordovaPushV5,$rootScope,$state) {
             StatusBar.styleDefault();
         }
     });
-<<<<<<< HEAD
 });
-=======
-})
-
-
-
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 
 app.run(['$rootScope', '$state', '$stateParams',
   function ($rootScope, $state, $stateParams,myAuth) {
@@ -121,10 +87,6 @@ app.run(['$rootScope', '$state', '$stateParams',
           $rootScope.stripe_publish_key = "";
   }]);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> aec4a4f285f7895fca73c61db1e144c55155dcec
 app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$ocLazyLoadProvider', 'JS_REQUIRES',
   function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $ocLazyLoadProvider, jsRequires,$authProvider,$locationProvider) {
     app.controller = $controllerProvider.register;
@@ -340,17 +302,16 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
     })
 
 .state('user.details', {
-	    url: 'details',
-      cache : false,
-	    views: {
+    url: 'details',
+    cache : false,
+    views: {
         'homeview': {
             templateUrl: 'templates/details.html',
             resolve: loadSequence('userprofile','ngFileUpload'),
             controller: 'UserProfileCtrl'
         }
-    }
-	    
-	  })
+    }	    
+})
 
 .state('user.home_details', {
       url: 'home_details/:id',

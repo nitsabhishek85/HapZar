@@ -1,13 +1,12 @@
 app.controller('projectDetailCtrl', function ($scope,$rootScope,$location, $stateParams, ionicMaterialInk,userService,$ionicPopup,$ionicLoading,myAuth,$sce, $timeout) {
     //ionic.material.ink.displayEffect();
     ionicMaterialInk.displayEffect();
-
     myAuth.updateUserinfo(myAuth.getUserAuthorisation());
-	  $scope.loggedindetails = myAuth.getUserNavlinks();
-	  if($scope.loggedindetails){
-	        
-	  }else{
-      $location.path('/');
+    $scope.loggedindetails = myAuth.getUserNavlinks();
+    if($scope.loggedindetails){
+
+    }else{
+        $location.path('/');
     }
     $scope.projectInfo = [];
     $scope.videoEmbLinkData='';
